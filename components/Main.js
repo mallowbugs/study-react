@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.css";
+import styles from "./Main.module.css";
 import { Links } from "./Links";
 import { Headline } from "./Headline";
 
