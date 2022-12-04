@@ -3,46 +3,14 @@ import Head from "next/head";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect, useState } from "react";
+import { useCounter } from "src/hooks/useCounter";
+import { useInputArray } from "src/hooks/useInputArray";
+import { useBGLightGreen } from "src/hooks/useBGLightGreen";
 
 export default function Home() {
-  const [num, setNum] = useState(1);
-  const [text, setText] = useState("");
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState([]);
-
-  const handleClick = useCallback(() => {
-    if (num < 10) {
-      setNum((prevNum) => prevNum + 1);
-    }
-  }, [num]);
-  const handleAdd = useCallback(() => {
-    setArray((prevArray) => {
-      if (prevArray.some((item) => item === text)) {
-        alert("同じ要素が既に存在します。");
-        return prevArray;
-      }
-      return [...prevArray, text];
-    });
-  }, [text]);
-  const handleDisplay = useCallback(
-    () => setIsShow((prevIsShow) => !prevIsShow),
-    []
-  );
-  const handleChange = useCallback((e) => {
-    if (e.target.value.length > 5) {
-      alert("５文字以内で入力してください");
-      return;
-    }
-    setText(e.target.value);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "lightgreen";
-    return () => {
-      document.body.style.backgroundColor = "";
-    };
-  }, [num]);
+  const { num, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleAdd, handleChange } = useInputArray();
+  useBGLightGreen();
 
   return (
     <div className={styles.container}>
