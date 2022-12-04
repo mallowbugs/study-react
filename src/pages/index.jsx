@@ -9,10 +9,11 @@ export default function Home() {
   const [num, setNum] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick = useCallback(() => {
     if (num < 10) {
-      setNum((num) => num + 1);
+      setNum((prevNum) => prevNum + 1);
     }
   }, [num]);
   const handleDisplay = useCallback(() => setIsShow((isShow) => !isShow), []);
