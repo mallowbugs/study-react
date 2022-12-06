@@ -3,14 +3,18 @@ import Head from "next/head";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBGLightGreen } from "src/hooks/useBGLightGreen";
 
-export default function About() {
-  const { num, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleAdd, handleChange } = useInputArray();
-  useBGLightGreen();
+export default function About(props) {
+  const {
+    num,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    handleAdd,
+    handleChange,
+  } = props;
 
   return (
     <div className={styles.container}>
