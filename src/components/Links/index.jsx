@@ -1,10 +1,10 @@
 import styles from "src/components/Links/Links.module.css";
 
-export function Links({ items }) {
+export const Links = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.grid}>
-        {items.map((item, index) => {
+        {props.items.map((item, index) => {
           return (
             <a href={item.href} className={styles.card} key={index}>
               <h2>{item.title}</h2>
@@ -15,4 +15,4 @@ export function Links({ items }) {
       </div>
     </div>
   );
-}
+};
