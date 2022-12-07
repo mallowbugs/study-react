@@ -6,7 +6,7 @@ import { Header } from "src/components/Header";
 
 export default function About(props) {
   const {
-    num,
+    doubleNum,
     isShow,
     handleClick,
     handleDisplay,
@@ -22,7 +22,7 @@ export default function About(props) {
         <title>about page</title>
       </Head>
       <Header />
-      {isShow ? <h1>{num}</h1> : null}
+      {isShow ? <h1>{doubleNum}</h1> : null}
       <button onClick={handleClick}>カウントアップ</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
