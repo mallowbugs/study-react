@@ -19,7 +19,7 @@ export const useComments = () => {
 };
 
 export const usePosts = () => {
-  return useFetchArray(`${API_URL}/pos ts`);
+  return useFetchArray(`${API_URL}/posts`);
 };
 
 export const useUsers = () => {
