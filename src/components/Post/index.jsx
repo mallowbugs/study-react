@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { UserByUserId } from "src/components/User/UserByUserId";
-import { CommentsByPostId } from "src/components/Comments/commentsByPostId";
+import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
 import { usePost } from "src/hooks/usePost";
 
 export const Post = () => {
