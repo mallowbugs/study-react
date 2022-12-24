@@ -17,7 +17,10 @@
     "swr": "^2.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
     "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.7.1"
+    "postcss": "^8.4.20",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.2.4"
   }
 }
