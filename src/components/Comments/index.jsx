@@ -14,14 +14,14 @@ export const Comments = () => {
   }
 
   return (
-    <ol>
+    <ul className="space-y-2">
       {data.map((comment) => {
         return (
-          <li key={comment.id}>
+          <li key={comment.id} className="border-b pb-2 hover:text-blue-500">
             <Link href={`/comments/${comment.id}`}>{comment.name}</Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };
