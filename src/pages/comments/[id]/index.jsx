@@ -23,7 +23,7 @@ export const getStaticProps = async (ctx) => {
   const COMMENT_API_URL = `${API_URL}/comments/${id}`;
   const comment = await fetch(COMMENT_API_URL);
   if (!comment.ok) {
-    return { notFound: true };
+    return { notFound: true, revalidate: 10 };
   }
   const commentData = await comment.json();
 
@@ -33,6 +33,7 @@ export const getStaticProps = async (ctx) => {
         [COMMENT_API_URL]: commentData,
       },
     },
+    revalidate: 10,
   };
 };
 
