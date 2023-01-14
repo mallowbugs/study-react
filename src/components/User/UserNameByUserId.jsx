@@ -1,8 +1,8 @@
+import { useFetch } from "src/hooks/useFetch";
 import { API_URL } from "src/utils/const";
-import useSWR from "swr";
 
-export const UserByUserId = (props) => {
-  const { data, error, isLoading } = useSWR(
+export const UserNameByUserId = (props) => {
+  const { data, error, isLoading } = useFetch(
     props.id ? `${API_URL}/users/${props.id}` : null
   );
 

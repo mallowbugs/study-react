@@ -1,12 +1,15 @@
 import Head from "next/head";
-import { UserByUserId } from "src/components/User/UserByUserId";
-import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
-import { usePost } from "src/hooks/usePost";
+import { UserNameByUserId } from "src/components/User/UserNameByUserId";
+import { CommentListByPostId } from "src/components/Comment/CommentListByPostId";
 import { useRouter } from "next/router";
+import { useFetch } from "src/hooks/useFetch";
+import { API_URL } from "src/utils/const";
 
-export const Post = () => {
+export const PostDetail = () => {
   const router = useRouter();
-  const { data, error, isLoading } = usePost(router.query.id);
+  const { data, error, isLoading } = useFetch(
+    router.query.id ? `${API_URL}/posts/${router.query.id}` : null
+  );
 
   if (isLoading) {
     return <div>ローディング中です</div>;
@@ -21,14 +24,14 @@ export const Post = () => {
       <Head>
         <title>{data?.title}</title>
       </Head>
-      <UserByUserId id={data?.userId}></UserByUserId>
+      <UserNameByUserId id={data?.userId}></UserNameByUserId>
 
       <h1 className="text-3xl font-bold">{data?.title}</h1>
       <p className="text-gray-900 text-xl mt-2">{data?.body}</p>
 
       <h2 className="text-xl font-bold mt-10">コメント一覧</h2>
       <div className="mt-2">
-        <CommentsByPostId id={data?.id}></CommentsByPostId>
+        <CommentListByPostId id={data?.id}></CommentListByPostId>
       </div>
     </div>
   );

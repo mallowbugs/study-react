@@ -1,7 +1,6 @@
-import { Header } from "src/components/Header";
-import { Comment } from "src/components/Comment";
 import { SWRConfig } from "swr";
 import { API_URL } from "src/utils/const";
+import { CommentDetail } from "src/components/Comment/CommentDetail";
 
 export const getStaticPaths = async () => {
   const comments = await fetch(`${API_URL}/comments?_limit=10`);
@@ -42,9 +41,8 @@ const CommentsId = (props) => {
 
   return (
     <div>
-      <Header />
       <SWRConfig value={{ fallback }}>
-        <Comment></Comment>
+        <CommentDetail></CommentDetail>
       </SWRConfig>
     </div>
   );
